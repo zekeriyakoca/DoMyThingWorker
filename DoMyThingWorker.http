@@ -1,6 +1,5 @@
-@DoMyThingWorker_HostAddress = http://localhost:5264
 
-GET {{DoMyThingWorker_HostAddress}}/weatherforecast/
+GET https://localhost:7189/weatherforecast/
 Accept: application/json
 
 ###
