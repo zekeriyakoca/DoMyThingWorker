@@ -1,4 +1,6 @@
 using DoMyThingWorker.BGServices;
+using DoMyThingWorker.Models;
+using DoMyThingWorker.Processors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHostedService<VFSInspector>();
+builder.Services.AddTransient<IProcessor<FindVFSAppointmentModel, FindVFSAppointmentResponseModel>, FindVFSAppointmentSlotProcessor>();
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
